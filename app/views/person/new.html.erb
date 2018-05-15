@@ -1,0 +1,15 @@
+<html>
+<h1>
+  salujen
+</h1>
+<form action="/actors">
+  <%= form_tag('/person/create', method: 'post') %>
+    <%= text_field_tag("person", :first_name) %>
+    <%= text_field_tag("person", :last_name) %>
+    <%= text_area_tag("person", :description) %>
+    <%= date_select("person", :birth_date) %>
+  <th>actor</th> <%= radio_button_tag("person", "is_actor", "yes")%>
+  <th>director</th> <%= radio_button_tag("person", "is_actor", "no")%>
+  <input type="submit">
+</form>
+</html>
