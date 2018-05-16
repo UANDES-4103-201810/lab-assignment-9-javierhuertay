@@ -3,3 +3,11 @@
 <%= render 'form', director: @director %>
 
 <%= link_to 'Back', directors_path %>
+
+<%= form_for @director, url: {action: "create"}, html: {class: "nifty_form"} do |f| %>
+  <%= f.text_field :first_name %>
+  <%= f.text_field :last_name %>
+  <%= f.date :birth_day %>
+  <%= f.text_field :description%>
+  <%= f.submit "Create" %>
+<% end %>
