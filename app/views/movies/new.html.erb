@@ -8,7 +8,7 @@
   salujen
 </h1>
 <form>
-  <%= form_tag('/person/create', method: 'POST') do%>
+  <%= form_tag('/movies/create', method: 'post') do%>
     <%= text_field_tag(:movie, :title) %>
     <%= text_field_tag(:movie, :duration) %>
     <%= text_field_tag(:movie, :director_id) %>

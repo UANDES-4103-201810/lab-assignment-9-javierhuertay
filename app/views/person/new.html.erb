@@ -3,7 +3,7 @@
   salujen
 </h1>
 <form>
-  <%= form_tag('/person/create', method: 'POST') do%>
+  <%= form_tag('/person/create', method: 'post') do%>
     <%= text_field_tag(:person, :first_name) %>
     <%= text_field_tag(:person, :last_name) %>
     <%= text_area_tag(:person, :description) %>
@@ -13,5 +13,3 @@
     <%= submit_tag('Crear') %>
     <% end %>
 </form>
-
-
