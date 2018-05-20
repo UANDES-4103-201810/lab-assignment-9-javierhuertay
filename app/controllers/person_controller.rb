@@ -1,20 +1,32 @@
 class PersonController < ApplicationController
 
+  def index
+    @director = Director.all
+    @actor = Actor.all
+    if params[:role] == 'actor'
+      redirect_to actors_path
+    else if params[:role] == 'director'
+           redirect_to directors_path
+         else
+           redirect_to person_create_path
+         end
+    end
+  end
+
   def new
 
-    @actor = Actor.new
-    @director = Director.new
-
+    @actor = Actor.create
+    @director = Director.create
   end
 
   def create
 
-    if params[:person][:role] == 'actor'
-      @actor = Actor.new(first_name: params[:first_name] ,last_name: params[:last_name], description: params[:description],birth_day: params[:birth_day])
+    if params[:role] == 'actor'
+      @actor = Actor.create(first_name: params[:first_name] ,last_name: params[:last_name], description: params[:description],birth_date: params[:birth_date])
 
       respond_to do |format|
         if @actor.save
-          format.html { redirect_to @actor, notice: 'Actor was successfully created.' }
+          format.html { redirect_to actors_path , notice: 'Actor was successfully created.' }
           format.json { render :show, status: :created, location: @actor }
         else
           format.html { render :new }
@@ -22,8 +34,8 @@ class PersonController < ApplicationController
         end
       end
 
-    elsif params[:person][:role] == 'director'
-      @director = Director.new(first_name: params[:first_name] ,last_name: params[:last_name], description: params[:description],birth_day: params[:birth_day])
+    elsif params[:role] == 'director'
+      @director = Director.create(first_name: params[:first_name] ,last_name: params[:last_name], description: params[:description],birth_date: params[:birth_date])
 
       respond_to do |format|
         if @director.save
@@ -35,6 +47,11 @@ class PersonController < ApplicationController
         end
         end
   end
+
+  end
+  def show
+    @actor = Actor.show
+    @director = Director.show
 
   end
 end

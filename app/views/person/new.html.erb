@@ -1,15 +1,21 @@
+<!DOCTYPE html>
+
+<body>
 
 <h1>
-  salujen
+  Create a Person
 </h1>
-<form>
-  <%= form_tag('/person/create', method: 'post') do%>
-    <%= text_field_tag(:person, :first_name) %>
-    <%= text_field_tag(:person, :last_name) %>
-    <%= text_area_tag(:person, :description) %>
-    <%= date_select(:person, :birth_date) %>
-    <th>director</th> <%= radio_button_tag(:role, 'actor') %>
-    <th>actor</th>  <%= radio_button_tag(:role, 'director') %>
-    <%= submit_tag('Crear') %>
+
+  <%= form_tag("/person/create", method: "post") do %>
+    <%= text_field_tag( :first_name) %>
+    <%= text_field_tag( :last_name) %>
+    <%= text_area_tag(:description) %>
+    <%= date_field_tag(:birth_date) %>
+    <%= radio_button_tag(:role, 'actor') %> actor
+    <%= radio_button_tag(:role, 'director') %> director
+    <%= submit_tag('Create') %>
     <% end %>
-</form>
+
+</body>
+
+</html>

@@ -3,18 +3,4 @@
 
 
 <%= link_to 'Back', movies_path %>
-
-<h1>
-  salujen
-</h1>
-<form>
-  <%= form_tag('/movies/create', method: 'post') do%>
-    <%= text_field_tag(:movie, :title) %>
-    <%= text_field_tag(:movie, :duration) %>
-    <%= text_field_tag(:movie, :director_id) %>
-    <%= text_field_tag(:movie, :address_id) %>
-    <%= text_area_tag(:movie, :description) %>
-    <%= date_select(:movie, :relase_date) %>
-    <%= submit_tag('Crear') %>
-  <% end %>
-</form>
+<%= render 'form', movie: @movie %>
