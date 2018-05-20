@@ -7,12 +7,12 @@
 </h1>
 
   <%= form_tag("/person/create", method: "post") do %>
-    <%= text_field_tag( :first_name) %>
-    <%= text_field_tag( :last_name) %>
-    <%= text_area_tag(:description) %>
-    <%= date_field_tag(:birth_date) %>
-    <%= radio_button_tag(:role, 'actor') %> actor
-    <%= radio_button_tag(:role, 'director') %> director
+  First name <%= text_field_tag( :first_name) %>
+  Last name <%= text_field_tag( :last_name) %>
+  Description <%= text_area_tag(:description) %>
+  Birth_day <%= date_field_tag(:birth_date) %>
+  Actor <%= radio_button_tag(:role, 'actor') %>
+  Director  <%= radio_button_tag(:role, 'director') %>
     <%= submit_tag('Create') %>
     <% end %>
 
